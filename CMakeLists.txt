@@ -1,5 +1,5 @@
-# Copyright: (C) 2014 RBCS Robotics Brain and Cognitive Science
-# Authors: Francesco Rea, Giorgio Metta
+# Copyright: (C) 2016 IIT-RBCS Robotics Brain and Cognitive Science and Tata Lab Lethbridge University
+# Authors: Francesco Rea, Matthew Tata
 # CopyPolicy: Released under the terms of the GNU GPL v2.0.
 
 cmake_minimum_required(VERSION 2.8)
@@ -72,10 +72,10 @@ if (ENABLE_CUDA)
     add_subdirectory(cudaVision)
 endif (ENABLE_CUDA)
 
-add_subdirectory(attentionLib)
+#add_subdirectory(audioAttentionLib)
 add_subdirectory(app)
 add_subdirectory(src)
 
-icubcontrib_finalize_export(attentionLib) #macro added 13/11/2013
-icubcontrib_finalize_export(attention)
+#icubcontrib_finalize_export(attentionLib) #macro added 13/11/2013
+icubcontrib_finalize_export(audioAttention)
 icubcontrib_add_uninstall_target()        #macro added 13/11/2013
