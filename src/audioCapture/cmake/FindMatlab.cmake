@@ -175,8 +175,12 @@ IF(NOT MATLAB_ROOT)
         # As you can see, all the previous extensions finish with a number corresponding to the OS version, except for
         # mexglx. The regular expresion 64$ is used to match the number 64 at the end of the retrieved extension. If it does
         # not match 64 it will either be empty (as it would happen for mexglx or 32 bits).
-        STRING(REGEX MATCH 64$ MATLAB_ARCH ${MATLAB_MEXFILE_EXT})
-
+        IF("${MATLAB_MEXFILE_EXT}" STREQUAL "")
+          message("MEXFILEs not found")
+        ELSE("${MATLAB_MEXFILE_EXT}" STREQUAL "")
+          STRING(REGEX MATCH 64$ MATLAB_ARCH ${MATLAB_MEXFILE_EXT})
+        ENDIF("${MATLAB_MEXFILE_EXT}" STREQUAL "")
+        
         IF("${MATLAB_ARCH}" STREQUAL "64")
           SET(_MATLAB_LIB_DIR "bin-NOTFOUND")
 

@@ -1,5 +1,5 @@
-# Copyright: (C) 2016 IIT-RBCS Robotics Brain and Cognitive Science and Tata Lab Lethbridge University
-# Authors: Francesco Rea, Matthew Tata
+# Copyright: (C) 2015 RBCS Robotics Brain and Cognitive Science
+# Authors: Francesco Rea
 # CopyPolicy: Released under the terms of the GNU GPL v2.0.
 
 cmake_minimum_required(VERSION 2.8)
@@ -8,7 +8,7 @@ if(COMMAND cmake_policy)
     cmake_policy(SET CMP0003 NEW)
 endif(COMMAND cmake_policy)
 
-project (attention)
+project (audioAttention)
 
 # Check for the minimal set of packages required for the global project.
 # If we include them here, sub-projects can be configured a bit faster.
@@ -48,6 +48,7 @@ include(YarpInstallationHelpers)
 find_package(OpenCV)
 find_package(IPOPT)
 
+
 find_package(logpolar QUIET)
 IF (logpolar_FOUND)
    message("Attention System: logpolar library detected and used.")
@@ -63,19 +64,24 @@ SET(ATTENTIONLIB_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/attentionLib/include)
 # default prefix for applications
 set(ICUB_APPLICATIONS_PREFIX "$ENV{ICUB_ROOT}" CACHE PATH "Application path prefix")
 
-### Go through single folder
+### Shall the system look for CUDA 
 option(ENABLE_CUDA  "Do you want to compile with Cuda?" OFF)
-
 if (ENABLE_CUDA)  
     find_package(CUDA QUIET REQUIRED)
     add_definitions (-DWITH_CUDA)
     add_subdirectory(cudaVision)
 endif (ENABLE_CUDA)
 
-#add_subdirectory(audioAttentionLib)
-add_subdirectory(app)
+### Shall the system look for CUDA 
+option(ENABLE_MATLAB  "Do you want to link against MATLAB?" OFF)
+#if (ENABLE_MATLAB)  
+#    find_package(CUDA QUIET REQUIRED)
+#    add_definitions (-DWITH_CUDA)
+#    add_subdirectory(cudaVision)
+#endif (ENABLE_CUDA)
+
+
+# Go through single folder
 add_subdirectory(src)
 
-#icubcontrib_finalize_export(attentionLib) #macro added 13/11/2013
-icubcontrib_finalize_export(audioAttention)
 icubcontrib_add_uninstall_target()        #macro added 13/11/2013
