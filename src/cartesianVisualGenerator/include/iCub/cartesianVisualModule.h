@@ -144,7 +144,7 @@
 #include <yarp/os/RFModule.h>
 #include <yarp/os/Network.h>
 #include <yarp/os/Thread.h>
-#include <iCub/attention/commandDictionary.h>
+//#include <iCub/attention/commandDictionary.h>
  
 //within project includes  
 #include <iCub/cartesianVisualThread.h>

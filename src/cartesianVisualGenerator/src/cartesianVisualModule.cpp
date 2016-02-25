@@ -26,8 +26,30 @@
 
 using namespace yarp::os;
 using namespace yarp::sig;
-using namespace attention::dictionary;
+//using namespace attention::dictionary;
 using namespace std;
+
+
+#define COMMAND_VOCAB_HELP               VOCAB4('h','e','l','p')
+#define COMMAND_VOCAB_HOR                VOCAB3('h','o','r')
+#define COMMAND_VOCAB_VIS                VOCAB3('v','i','s')
+#define COMMAND_VOCAB_SET                VOCAB3('s','e','t')
+#define COMMAND_VOCAB_GET                VOCAB3('g','e','t')
+#define COMMAND_VOCAB_RUN                VOCAB3('r','u','n')
+#define COMMAND_VOCAB_OFF                VOCAB3('o','f','f')
+#define COMMAND_VOCAB_SUSPEND            VOCAB3('s','u','s')
+#define COMMAND_VOCAB_RESUME             VOCAB3('r','e','s')
+#define COMMAND_VOCAB_FIX                VOCAB3('f','i','x')
+#define COMMAND_VOCAB_IS                 VOCAB2('i','s')
+#define COMMAND_VOCAB_OK                 VOCAB2('o','k')
+#define COMMAND_VOCAB_ON                 VOCAB2('o','n')
+#define COMMAND_VOCAB_FAILED             VOCAB4('f','a','i','l')
+#define COMMAND_VOCAB_SEEK               VOCAB4('s','e','e','k')
+#define COMMAND_VOCAB_CENT               VOCAB4('c','e','n','t')
+#define COMMAND_VOCAB_STOP               VOCAB4('s','t','o','p')
+#define COMMAND_VOCAB_TEST               VOCAB4('t','e','s','t')
+#define COMMAND_VOCAB_QUIT               VOCAB4('q','u','i','t')
+#define COMMAND_VOCAB_WEIGHT             VOCAB4('w','e','i','g')
 
 /* 
  * Configure method. Receive a previously initialized

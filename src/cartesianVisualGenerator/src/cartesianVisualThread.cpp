@@ -152,13 +152,21 @@ void cartesianVisualThread::run() {
 void cartesianVisualThread::updateSalience(yarp::os::Bottle* b) {
     //get the value in the bottle
     yInfo("received bottle: %s ",b->toString().c_str());
-    angle    = b->get(0).asDouble();
-    salience = b->get(1).asDouble();
+    for(int i=0 ; i < b->size(); ++i) {
+        Bottle b2 = b->get(i); 
+        angle    = b2->get(0).asDouble();
+        salience = b2->get(1).asDouble();
+    }
     yInfo("received angle %f %f", angle, salience);
+    
+    //sem.wait();
+
     // the field of view is in the range [-25deg, 25deg]
     azimuthPixel = angle * (130/25) + 160;
     //salience = 10.0;
     decayingWeight = 255;
+
+    //sem.post();
 }
 
 int cartesianVisualThread::processing(){
