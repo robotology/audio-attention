@@ -5,6 +5,7 @@ cmake_minimum_required(VERSION 2.6)
 
 add_subdirectory    ( remoteInterface          )
 #add_subdirectory    ( mosaicPanHead            )
+add_subdirectory    (cartesianVisualGenerator  )
 if(ENABLE_MATLAB)
   add_subdirectory  ( audioCapture             )
   #add_subdirectory  ( audioAttentionControl    )

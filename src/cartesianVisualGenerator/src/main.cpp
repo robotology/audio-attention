@@ -38,7 +38,7 @@ int main(int argc, char * argv[])
     rf.setVerbose(true);
     rf.setDefaultConfigFile("cameraTest.ini");    //overridden by --from parameter
     rf.setDefaultContext("morphoGenApp/conf");    //overridden by --context parameter
-    rf.configure("ICUB_ROOT", argc, argv);  
+    rf.configure(argc, argv);  
  
     module.runModule(rf);
     return 0;

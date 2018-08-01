@@ -153,7 +153,7 @@ void cartesianVisualThread::updateSalience(yarp::os::Bottle* b) {
     //get the value in the bottle
     yInfo("received bottle: %s ",b->toString().c_str());
     for(int i=0 ; i < b->size(); ++i) {
-        Bottle b2 = b->get(i); 
+        Bottle* b2 = b->get(i).asList(); 
         angle    = b2->get(0).asDouble();
         salience = b2->get(1).asDouble();
     }
