@@ -14,7 +14,7 @@ Installation
 * For step-by-step installation instructions from a fresh install, you can follow our guide [here]().
 
 ```bash
-git clone https://github.com/robotology/Audio-Attention.git
+git clone https://github.com/robotology/audio-attention.git
 cd iCubAudioAttention && mkdir build && cd build
 ccmake ..
 ```
